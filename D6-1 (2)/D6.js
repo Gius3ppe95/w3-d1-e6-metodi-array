@@ -236,10 +236,22 @@ console.log(MoviesCounter(movies));
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
+const OnlyTitles = (array) => {
+  return array.map((e) => e.Title);
+};
+console.log(OnlyTitles(movies));
 
 /* ESERCIZIO 12 (filter)
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+
+const currentPeriod = (array) => {
+  return array.filter((e) => {
+    return parseInt(e.Year) > 1999;
+  });
+};
+
+console.log(currentPeriod(movies));
 
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
