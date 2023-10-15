@@ -16,13 +16,37 @@ console.log(concatStr("epicode", "accademy"));
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
 
+const randomNum = () => {
+  const listNumber = [];
+  for (let i = 0; i < 10; i++) {
+    listNumber.push(Math.floor(Math.random() * 101));
+  }
+  return listNumber;
+};
+console.log(randomNum());
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
 
+const evenNum = (array) => {
+  return array.filter((a) => a % 2 === 0);
+};
+
+console.log(evenNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
 /* ESERCIZIO 4 (forEach)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+
+const sumNum = (array) => {
+  let sum = 0;
+  array.forEach((element) => {
+    sum += element;
+  });
+  return sum;
+};
+
+console.log(sumNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
