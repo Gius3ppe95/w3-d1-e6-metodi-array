@@ -47,7 +47,7 @@ const sumNum = (array) => {
   return sum;
 };
 
-console.log(sumNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log("(con il forEach) la somma dei numeri pari è :" + " " + sumNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
@@ -56,7 +56,7 @@ const reduceNum = (array) => {
   return array.reduce((acc, val) => acc + val, 0);
 };
 
-console.log(reduceNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+console.log("(con il reduce ) la somma dei numeri pari è :" + " " + reduceNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
@@ -231,7 +231,7 @@ const MoviesCounter = (array) => {
   return array.length;
 };
 
-console.log(MoviesCounter(movies));
+console.log("totale film nell'array :" + " " + MoviesCounter(movies));
 
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
@@ -257,10 +257,27 @@ console.log(currentPeriod(movies));
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
 
+const sumYears = (array) => {
+  return array.reduce((acc, val) => acc + parseInt(val.Year), 0);
+};
+
+console.log("la somma di tutti glia anni è :" + " " + sumYears(movies));
+
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
+const moviesId = function (array, id) {
+  return array.find((e) => e.imdbID === id);
+};
+
+console.log(moviesId(movies, "tt0355702"));
+
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
+const movieYear = function (array, year) {
+  return array.findIndex((e) => parseInt(e.Year) === year);
+};
+
+console.log("l'indice del film selezionato è :" + " " + movieYear(movies, 2019));
