@@ -24,6 +24,7 @@ const randomNum = () => {
   return listNumber;
 };
 console.log(randomNum());
+
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
@@ -40,8 +41,8 @@ console.log(evenNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 const sumNum = (array) => {
   let sum = 0;
-  array.forEach((element) => {
-    sum += element;
+  array.forEach((e) => {
+    sum += e;
   });
   return sum;
 };
@@ -51,19 +52,48 @@ console.log(sumNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+const reduceNum = (array) => {
+  return array.reduce((acc, val) => acc + val, 0);
+};
+
+console.log(reduceNum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
+
+const newArray = (array, n) => {
+  return array.map((e) => e + n);
+};
+
+console.log(newArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
 
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
 
+const position = (array) => {
+  return array.map((e) => e.length);
+};
+
+console.log(position(["EPICODE", "is", "great"]));
+
 /* ESERCIZIO 8 (forEach o for)
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
+
+const oddNum = () => {
+  const onlyOdd = [];
+  for (let i = 0; i < 100; i++) {
+    if (i % 3 === 0) {
+      onlyOdd.push(i);
+    }
+  }
+  return onlyOdd;
+};
+
+console.log(oddNum());
 
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
@@ -179,10 +209,29 @@ const movies = [
 /* ESERCIZIO 9 (forEach)
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
+const oldestMovie = (array) => {
+  let oldest = { Year: 2020 };
+  array.forEach((movie) => {
+    let YearX = parseInt(movie.Year);
+    if (YearX < oldest.Year) {
+      oldest = movie;
+    }
+  });
+
+  return oldest;
+};
+
+console.log(oldestMovie(movies));
 
 /* ESERCIZIO 10
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+
+const MoviesCounter = (array) => {
+  return array.length;
+};
+
+console.log(MoviesCounter(movies));
 
 /* ESERCIZIO 11 (map)
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
